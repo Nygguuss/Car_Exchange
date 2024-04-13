@@ -24,14 +24,24 @@
         </Menu>
         <StackPanel Orientation="Horizontal">
             <StackPanel>
-                <StackPanel  Background="HotPink" Width="400"  Height="205" >
-                    <StackPanel Width="220" VerticalAlignment="Top" HorizontalAlignment="Left">
-                        <Image Source="{Binding carList[0].SciezkaDoZdjecia, RelativeSource={RelativeSource AncestorType=Window}}"/>
-                    </StackPanel>
+                <StackPanel  Background="HotPink" Width="400"  Height="205" MouseDown="StackPanel_MouseDown">
                     <StackPanel Orientation="Horizontal">
+                        <StackPanel Width="220" VerticalAlignment="Top" HorizontalAlignment="Left" >
+                            <Image Source="{Binding carList[0].SciezkaDoZdjecia, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                        </StackPanel>
+                        <StackPanel Background="Beige" Orientation="Horizontal">
+                            <Label Content="SIEMA"/>
+                            <Label Content="SIEMA"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Background="Aquamarine">
                         <Label Content="{Binding carList[0].Marka, RelativeSource={RelativeSource AncestorType=Window}}" FontSize="25"/>
                         <Label Content="{Binding carList[0].ModelSamochodu, RelativeSource={RelativeSource AncestorType=Window}}" FontSize="25"/>
                         <Label Content="{Binding carList[0].RokProdukcji, RelativeSource={RelativeSource AncestorType=Window}}" FontSize="25"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Prędkość maksymalna"/>
+                        <Label  Content="{Binding carList[0].PredkoscMaksymalna, RelativeSource={RelativeSource AncestorType=Window}}"/>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel  Background="LightGreen" Width="400" Height="210">
@@ -46,10 +56,7 @@
                 <StackPanel  Background="OrangeRed" Width="400" Height="210" >
 
                 </StackPanel>
-
             </StackPanel>
-
-
         </StackPanel>
     </DockPanel>
 
