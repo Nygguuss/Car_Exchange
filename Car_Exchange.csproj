@@ -22,8 +22,4 @@
     <Resource Include="src\auto4.png" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="pages\" />
-  </ItemGroup>
-
 </Project>
