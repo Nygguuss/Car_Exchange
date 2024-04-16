@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace Car_Exchange
 {
@@ -17,10 +18,14 @@ namespace Car_Exchange
     public partial class MainWindow : Window
     {
         public List<Model> carList { get; set; }
+        public ObservableCollection<Model> CarList { get; set; } = new ObservableCollection<Model>();
+
         public MainWindow()
         {
             InitializeComponent();
-            carInit();
+            DataContext = this;
+            InitializeCars();
+            //carInit();
         }
 
         public void carInit()
@@ -39,9 +44,12 @@ namespace Car_Exchange
             this.DataContext = carList;
         }
 
-        private void StackPanel_MouseDown(object sender, MouseButtonEventArgs e)
+        private void InitializeCars()
         {
-            MessageBox.Show("Siema");
+            CarList.Add(new Model("Opel", "Corsa", 2016, "Szary", 220, 85000, "src\\auto.png", "Warszawa", new DateTime(2022, 4, 12)));
+            CarList.Add(new Model("Dacia", "Sandero", 2012, "Niebieski", 220, 33000, "src\\auto2.png", "Kraków", new DateTime(2022, 4, 11)));
+            CarList.Add(new Model("Ford", "Mk3", 2017, "Czerwony", 280, 127000, "src\\auto3.png", "Gdańsk", new DateTime(2022, 4, 10)));
+            CarList.Add(new Model("Scania", "R730", 2015, "Brązowy", 180, 750000, "src\\auto4.png", "Poznań", new DateTime(2022, 4, 9)));
         }
     }
 }

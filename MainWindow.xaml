@@ -7,57 +7,57 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
-    <DockPanel LastChildFill="True" Name="doc">
-        <Menu DockPanel.Dock="Top" Height="20">
-            <MenuItem Header="_Opcje">
-                <MenuItem Header="_Dodaj Samochód"/>
-                <MenuItem Header="_Odśwież"/>
-                <Separator />
-                <MenuItem Header="_Wyjście"/>
-            </MenuItem>
-            <MenuItem Header="_O Autorze">
+    <Window.Resources>
+        <AlternationConverter x:Key="BackgroundConverter">
+            <SolidColorBrush Color="#19f39611" />
+            <SolidColorBrush Color="#19000000" />
+        </AlternationConverter>
 
-            </MenuItem>
-            <MenuItem Header="_Pomoc">
+        <Style x:Key="Style2" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border Name="Border" Padding="7" SnapsToDevicePixels="True" Background="{TemplateBinding Background}">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="Gray"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="Green"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
-            </MenuItem>
-        </Menu>
-        <StackPanel Orientation="Horizontal">
-            <StackPanel>
-                <StackPanel  Background="HotPink" Width="400"  Height="205" MouseDown="StackPanel_MouseDown">
-                    <StackPanel Orientation="Horizontal">
-                        <StackPanel Width="220" VerticalAlignment="Top" HorizontalAlignment="Left" >
-                            <Image Source="{Binding carList[0].SciezkaDoZdjecia, RelativeSource={RelativeSource AncestorType=Window}}"/>
+        <Style x:Key="Style1" TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource Style2}">
+            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Self},
+                 Path=(ItemsControl.AlternationIndex),
+                 Converter={StaticResource BackgroundConverter}}"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <ListBox ItemsSource="{Binding CarList}" ItemContainerStyle="{StaticResource Style1}" AlternationCount="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1" Margin="5">
+                        <StackPanel Orientation="Horizontal" Background="Blue">
+                            <StackPanel>
+                                <Image Source="{Binding Zdjecie}" Width="200"/>
+                            </StackPanel>
+                            <StackPanel Background="Red" HorizontalAlignment="Right">
+                                <Label Content="{Binding Marka}"/>
+                            </StackPanel>
                         </StackPanel>
-                        <StackPanel Background="Beige" Orientation="Horizontal">
-                            <Label Content="SIEMA"/>
-                            <Label Content="SIEMA"/>
-                        </StackPanel>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Background="Aquamarine">
-                        <Label Content="{Binding carList[0].Marka, RelativeSource={RelativeSource AncestorType=Window}}" FontSize="25"/>
-                        <Label Content="{Binding carList[0].ModelSamochodu, RelativeSource={RelativeSource AncestorType=Window}}" FontSize="25"/>
-                        <Label Content="{Binding carList[0].RokProdukcji, RelativeSource={RelativeSource AncestorType=Window}}" FontSize="25"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="Prędkość maksymalna"/>
-                        <Label  Content="{Binding carList[0].PredkoscMaksymalna, RelativeSource={RelativeSource AncestorType=Window}}"/>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel  Background="LightGreen" Width="400" Height="210">
-
-                </StackPanel>
-            </StackPanel>
-
-            <StackPanel>
-                <StackPanel  Background="BlueViolet" Width="400"  Height="205" >
-
-                </StackPanel>
-                <StackPanel  Background="OrangeRed" Width="400" Height="210" >
-
-                </StackPanel>
-            </StackPanel>
-        </StackPanel>
-    </DockPanel>
-
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
 </Window>

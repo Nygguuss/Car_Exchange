@@ -9,7 +9,7 @@ namespace Car_Exchange
         public int RokProdukcji { get; set; }
         public string Kolor { get; set; }
         public double PredkoscMaksymalna { get; set; }
-        public string SciezkaDoZdjecia { get; set; }
+        public string Zdjecie { get; set; }
         public double Cena { get; set; }
         public string Lokalizacja { get; set; } 
         public DateTime DataDodania { get; set; }
@@ -22,7 +22,7 @@ namespace Car_Exchange
             Kolor = kolor;
             PredkoscMaksymalna = predkosc;
             Cena = c;
-            SciezkaDoZdjecia = sciezkaDoZdjecia;
+            Zdjecie = sciezkaDoZdjecia;
             Lokalizacja = lokalizacja; 
             DataDodania = dataDodania; 
         }
