@@ -7,57 +7,61 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
-    <Window.Resources>
-        <AlternationConverter x:Key="BackgroundConverter">
-            <SolidColorBrush Color="#19f39611" />
-            <SolidColorBrush Color="#19000000" />
-        </AlternationConverter>
+    <DockPanel LastChildFill="True">
+        <Menu DockPanel.Dock="Top" Background="#9fc5e8" Padding="3" FontSize="14">
+            <MenuItem Header="Program">
+                <MenuItem  Header="_Wyjście"/>
+            </MenuItem>
+            <MenuItem Header="_Opcje">
+                <MenuItem Header="_Dodaj Samochód"/>
+                <MenuItem Header="_Odśwież"/>
+            </MenuItem>
+            <MenuItem Header="_O Autorze">
+                
+            </MenuItem>
+            <MenuItem Header="_Pomoc">
+                
+            </MenuItem>
+        </Menu>
 
-        <Style x:Key="Style2" TargetType="{x:Type ListBoxItem}">
-            <Setter Property="SnapsToDevicePixels" Value="true"/>
-            <Setter Property="OverridesDefaultStyle" Value="true"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ListBoxItem">
-                        <Border Name="Border" Padding="7" SnapsToDevicePixels="True" Background="{TemplateBinding Background}">
-                            <ContentPresenter />
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsSelected" Value="true">
-                                <Setter TargetName="Border" Property="Background" Value="Gray"/>
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Foreground" Value="Green"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+        <ScrollViewer>
+            <StackPanel>
+                <ListBox ItemsSource="{Binding CarList}" ItemContainerStyle="{StaticResource Style1}" AlternationCount="2">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderBrush="Black" BorderThickness="1" Margin="5">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <!-- Kolumna dla obrazka -->
+                                        <ColumnDefinition Width="*"/>
+                                        <!-- Kolumna dla danych -->
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0" Orientation="Horizontal">
+                                        <Image Source="{Binding Zdjecie}" Width="200" Margin="5" HorizontalAlignment="Left"/>
+                                        <Label Content="{Binding Cena}" VerticalAlignment="Bottom" FontSize="24"/>
+                                        <Label Content="PLN" FontSize="15" VerticalAlignment="Bottom"/>
+                                    </StackPanel>
+                                    <!-- Obrazek po lewej -->
+                                    <StackPanel Grid.Column="1" Margin="5" HorizontalAlignment="Right">
+                                        <!-- Dane po prawej -->
+                                        <StackPanel Orientation="Horizontal">
+                                            <Label Content="{Binding Marka}" FontSize="20"/>
+                                            <Label Content="{Binding ModelSamochodu}" FontSize="20"/>
 
-        <Style x:Key="Style1" TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource Style2}">
-            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Self},
-                 Path=(ItemsControl.AlternationIndex),
-                 Converter={StaticResource BackgroundConverter}}"/>
-        </Style>
-    </Window.Resources>
-
-    <Grid>
-        <ListBox ItemsSource="{Binding CarList}" ItemContainerStyle="{StaticResource Style1}" AlternationCount="2">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Border BorderBrush="Black" BorderThickness="1" Margin="5">
-                        <StackPanel Orientation="Horizontal" Background="Blue">
-                            <StackPanel>
-                                <Image Source="{Binding Zdjecie}" Width="200"/>
-                            </StackPanel>
-                            <StackPanel Background="Red" HorizontalAlignment="Right">
-                                <Label Content="{Binding Marka}"/>
-                            </StackPanel>
-                        </StackPanel>
-                    </Border>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-    </Grid>
+                                        </StackPanel>
+                                        <Label Content="{Binding RokProdukcji}" FontSize="20" FlowDirection="RightToLeft"/>
+                                        <StackPanel FlowDirection="RightToLeft" Orientation="Horizontal">
+                                            <Label  Content="{Binding Lokalizacja}"/>
+                                            <Label Content="{Binding DataDodania}"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </ScrollViewer>
+    </DockPanel>
 </Window>

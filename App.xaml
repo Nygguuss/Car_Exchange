@@ -4,6 +4,33 @@
              xmlns:local="clr-namespace:Car_Exchange"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <AlternationConverter x:Key="BackgroundConverter">
+            <SolidColorBrush Color="#9fc5e8" />
+        </AlternationConverter>
+
+        <Style x:Key="Style2" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border Name="Border" Padding="5" SnapsToDevicePixels="True" Background="{TemplateBinding Background}">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="#b1d4e0"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="Style1" TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource Style2}">
+            <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource Self},
+                 Path=(ItemsControl.AlternationIndex),
+                 Converter={StaticResource BackgroundConverter}}"/>
+        </Style>
     </Application.Resources>
 </Application>
