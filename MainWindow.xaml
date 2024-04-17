@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Car_Exchange"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Program" Height="450" Width="800">
 
     <DockPanel LastChildFill="True">
         <Menu DockPanel.Dock="Top" Background="#9fc5e8" Padding="3" FontSize="14">
@@ -26,7 +26,7 @@
 
         <ScrollViewer>
             <StackPanel>
-                <ListBox ItemsSource="{Binding CarList}" ItemContainerStyle="{StaticResource Style1}" AlternationCount="2">
+                <ListBox ItemsSource="{Binding CarList}" ItemContainerStyle="{StaticResource Style1}" AlternationCount="2" MouseDoubleClick="ListBox_MouseDoubleClick" x:Name="samochodListbox">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Border BorderBrush="Black" BorderThickness="1" Margin="5">

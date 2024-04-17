@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Car_Exchange
 {
-    public class Model
+    public class Model : INotifyPropertyChanged
     {
         public string Marka { get; set; }
         public string ModelSamochodu { get; set; }
@@ -13,6 +17,32 @@ namespace Car_Exchange
         public double Cena { get; set; }
         public string Lokalizacja { get; set; } 
         public DateTime DataDodania { get; set; }
+        public string _imagePath { get; set; }
+
+        public string ImagePath
+        {
+            get { return _imagePath; }
+            set
+            {
+                _imagePath = value;
+                NotifyPropertyChanged("ImageSource");
+            }
+        }
+
+        public ImageSource ImageSource
+        {
+            get
+            {
+                return new BitmapImage(new Uri($"pack://application:,,,/Car_Exchange;component/{ImagePath}", UriKind.Absolute));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         public Model(string marka, string modelS, int rokProdukcji, string kolor, double predkosc, double c, string sciezkaDoZdjecia, string lokalizacja, DateTime dataDodania)
         {
@@ -24,7 +54,8 @@ namespace Car_Exchange
             Cena = c;
             Zdjecie = sciezkaDoZdjecia;
             Lokalizacja = lokalizacja; 
-            DataDodania = dataDodania; 
+            DataDodania = dataDodania;
+            ImagePath = sciezkaDoZdjecia;
         }
 
         public string Informacje()
