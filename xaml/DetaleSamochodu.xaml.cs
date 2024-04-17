@@ -26,5 +26,12 @@ namespace Car_Exchange.xaml
             model = wybranySamochod;
             DataContext = model;
         }
+
+        private void Cofanie_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
     }
 }

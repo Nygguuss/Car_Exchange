@@ -18,7 +18,6 @@ namespace Car_Exchange
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<Model> carList { get; set; }
         public ObservableCollection<Model> CarList { get; set; } = new ObservableCollection<Model>();
 
         public MainWindow()
