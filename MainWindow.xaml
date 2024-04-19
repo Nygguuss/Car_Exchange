@@ -13,7 +13,7 @@
                 <MenuItem  Header="_Wyjście"/>
             </MenuItem>
             <MenuItem Header="_Opcje">
-                <MenuItem Header="_Dodaj Samochód"/>
+                <MenuItem Header="_Dodaj Samochód" Click="formularzDodawania_Click"/>
                 <MenuItem Header="_Odśwież"/>
             </MenuItem>
             <MenuItem Header="_O Autorze">

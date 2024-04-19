@@ -25,11 +25,6 @@ namespace Car_Exchange
             InitializeComponent();
             DataContext = this;
             InitializeCars();
-
-            DodawanieSamochodu dodawanieSamochodu = new DodawanieSamochodu();
-            dodawanieSamochodu.Show();
-            this.Close();
-
         }
 
         private void InitializeCars()
@@ -45,6 +40,13 @@ namespace Car_Exchange
             Model wybranySamochod = (Model)samochodListbox.SelectedItem;
             DetaleSamochodu detaleSamochodu = new DetaleSamochodu(wybranySamochod);
             detaleSamochodu.Show();
+            this.Close();
+        }
+
+        private void formularzDodawania_Click(object sender, RoutedEventArgs e)
+        {
+            DodawanieSamochodu dodawanieSamochodu = new DodawanieSamochodu();
+            dodawanieSamochodu.Show();
             this.Close();
         }
     }
