@@ -25,6 +25,7 @@ namespace Car_Exchange
             InitializeComponent();
             DataContext = this;
             InitializeCars();
+            
         }
 
         private void InitializeCars()
