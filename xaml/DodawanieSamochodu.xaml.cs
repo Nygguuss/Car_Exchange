@@ -12,6 +12,8 @@ namespace Car_Exchange.xaml
     {
         public string destinationFilePath;
         public DateTime thisDay = DateTime.Today;
+
+        //TODO: przekazywanie danych do okna głównego
         public ObservableCollection<Model> CarList2 { get; set; } = new ObservableCollection<Model>();
 
         public DodawanieSamochodu()
