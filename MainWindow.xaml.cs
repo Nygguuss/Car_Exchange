@@ -25,6 +25,11 @@ namespace Car_Exchange
             InitializeComponent();
             DataContext = this;
             InitializeCars();
+
+            DodawanieSamochodu dodawanieSamochodu = new DodawanieSamochodu();
+            dodawanieSamochodu.Show();
+            this.Close();
+
         }
 
         private void InitializeCars()

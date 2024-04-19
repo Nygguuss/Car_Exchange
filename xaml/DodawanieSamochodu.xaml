@@ -1,0 +1,48 @@
+﻿    <Window x:Class="Car_Exchange.xaml.DodawanieSamochodu"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:local="clr-namespace:Car_Exchange.xaml"
+            mc:Ignorable="d"
+            Title="DodawanieSamochodu" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Marka:" Margin="5"/>
+        <TextBox Grid.Row="0" x:Name="MarkaTextBox" Margin="5"/>
+
+        <TextBlock Grid.Row="1" Text="Model samochodu:" Margin="5"/>
+        <TextBox Grid.Row="1" x:Name="ModelSamochoduTextBox" Margin="5"/>
+
+        <TextBlock Grid.Row="2" Text="Rok produkcji:" Margin="5"/>
+        <TextBox Grid.Row="2" x:Name="RokProdukcjiTextBox" Margin="5"/>
+
+        <TextBlock Grid.Row="3" Text="Kolor:" Margin="5"/>
+        <TextBox Grid.Row="3" x:Name="KolorTextBox" Margin="5"/>
+
+        <TextBlock Grid.Row="4" Text="Prędkość maksymalna:" Margin="5"/>
+        <TextBox Grid.Row="4" x:Name="PredkoscMaksymalnaTextBox" Margin="5"/>
+
+        <TextBlock Grid.Row="5" Text="Zdjęcie (ścieżka):" Margin="5"/>
+        <TextBox Grid.Row="5" x:Name="ZdjecieTextBox" Margin="5"/>
+
+        <TextBlock Grid.Row="6" Text="Cena:" Margin="5"/>
+        <TextBox Grid.Row="6" x:Name="CenaTextBox" Margin="5"/>
+
+        <TextBlock Grid.Row="7" Text="Lokalizacja:" Margin="5"/>
+        <TextBox Grid.Row="7" x:Name="LokalizacjaTextBox" Margin="5"/>
+
+        <Button Grid.Row="8" Content="Dodaj" Click="DodajSamochod_Click" HorizontalAlignment="Center" Margin="5"/>
+    </Grid>
+    </Window>
