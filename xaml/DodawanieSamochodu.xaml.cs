@@ -1,36 +1,67 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.IO;
 
 namespace Car_Exchange.xaml
 {
-    /// <summary>
-    /// Interaction logic for DodawanieSamochodu.xaml
-    /// </summary>
     public partial class DodawanieSamochodu : Window
     {
-
+        public string destinationFilePath;
+        public DateTime thisDay = DateTime.Today;
         public ObservableCollection<Model> CarList2 { get; set; } = new ObservableCollection<Model>();
+
         public DodawanieSamochodu()
         {
             InitializeComponent();
+            DataContext = this;
         }
 
         private void DodajSamochod_Click(object sender, RoutedEventArgs e)
         {
-            //CarList.Add(new Model("Opel", "Corsa", 2016, "Szary", 220, 85000, "src\\auto.png", "Warszawa", new DateTime(2022, 4, 12)));
-            //CarList2.Add(new Model();
+            try
+            {
+                string Marka = MarkaTextBox.Text;
+                string modelS = ModelSamochoduTextBox.Text;
+                int rokProdukcji = Convert.ToInt32(RokProdukcjiTextBox.Text);
+                string kolorS = KolorTextBox.Text;
+                double predkoscMax = Convert.ToDouble(PredkoscMaksymalnaTextBox.Text);
+                double cenaS = Convert.ToDouble(CenaTextBox.Text);
+                string lokalizacjaS = LokalizacjaTextBox.Text;
+                DateTime dataDodaniaS = thisDay;
+                CarList2.Add(new Model(Marka, modelS, rokProdukcji, kolorS, predkoscMax, cenaS, destinationFilePath, lokalizacjaS, dataDodaniaS));
+                MessageBox.Show(CarList2[0].Informacje());
+            } catch (Exception ex)
+            {
+                MessageBox.Show("Wprowadź wszystkie dane");
+            }
+        }
+
+        private void DodajZdjecie_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png) | *.jpg; *.jpeg; *.png";
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                // Wczytaj zdjęcie
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(openFileDialog.FileName);
+                bitmap.EndInit();
+
+                // Wyświetl zdjęcie
+                DisplayedImage.Source = bitmap;
+
+                // Zapisz zdjęcie
+                string destinationPath = "C:\\Users\\ADMIN\\source\\repos\\Car_Exchange\\src"; // Ustaw docelową ścieżkę
+                string fileName = Path.GetFileName(openFileDialog.FileName);
+                destinationFilePath = Path.Combine(destinationPath, fileName);
+                imgSrc.Text = destinationFilePath;
+                File.Copy(openFileDialog.FileName, destinationFilePath, true);
+            }
         }
     }
 }

@@ -7,42 +7,53 @@
             mc:Ignorable="d"
             Title="DodawanieSamochodu" Height="450" Width="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Wprowadź dane Pojazdu" HorizontalAlignment="Center"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            
+            <Label Content="Marka pojazdu" Grid.Row="1" HorizontalAlignment="Left" Panel.ZIndex="100"/>
+            <TextBox x:Name="MarkaTextBox" Background="Beige" Grid.Row="1" Width="250" Height="40" HorizontalAlignment="Right"/>
 
-        <TextBlock Grid.Row="0" Text="Marka:" Margin="5"/>
-        <TextBox Grid.Row="0" x:Name="MarkaTextBox" Margin="5"/>
+            <Label Content="Model pojazdu" Grid.Row="2" HorizontalAlignment="Left" Panel.ZIndex="100"/>
+            <TextBox x:Name="ModelSamochoduTextBox"  Background="Beige" Grid.Row="2" Width="250" Height="40" HorizontalAlignment="Right"/>
 
-        <TextBlock Grid.Row="1" Text="Model samochodu:" Margin="5"/>
-        <TextBox Grid.Row="1" x:Name="ModelSamochoduTextBox" Margin="5"/>
+            <Label Content="Rok produkcji pojazdu" Grid.Row="3" HorizontalAlignment="Left" Panel.ZIndex="100"/>
+            <TextBox x:Name="RokProdukcjiTextBox" Background="Beige" Grid.Row="3" Width="250" Height="40" HorizontalAlignment="Right"/>
 
-        <TextBlock Grid.Row="2" Text="Rok produkcji:" Margin="5"/>
-        <TextBox Grid.Row="2" x:Name="RokProdukcjiTextBox" Margin="5"/>
+            <Label Content="Kolor pojazdu" Grid.Row="4" HorizontalAlignment="Left" Panel.ZIndex="100"/>
+            <TextBox x:Name="KolorTextBox" Background="Beige" Grid.Row="4" Width="250" Height="40" HorizontalAlignment="Right"/>
 
-        <TextBlock Grid.Row="3" Text="Kolor:" Margin="5"/>
-        <TextBox Grid.Row="3" x:Name="KolorTextBox" Margin="5"/>
+            <Label Content="Prędkość maksymalna" Grid.Row="5" HorizontalAlignment="Left" Panel.ZIndex="100"/>
+            <TextBox x:Name="PredkoscMaksymalnaTextBox" Background="Beige" Grid.Row="5" Width="250" Height="40" HorizontalAlignment="Right"/>
 
-        <TextBlock Grid.Row="4" Text="Prędkość maksymalna:" Margin="5"/>
-        <TextBox Grid.Row="4" x:Name="PredkoscMaksymalnaTextBox" Margin="5"/>
+            <Label Content="Cena pojazdu" Grid.Row="6" HorizontalAlignment="Left" Panel.ZIndex="100"/>
+            <TextBox x:Name="CenaTextBox" Background="Beige" Grid.Row="6" Width="250" Height="40" HorizontalAlignment="Right"/>
 
-        <TextBlock Grid.Row="5" Text="Zdjęcie (ścieżka):" Margin="5"/>
-        <TextBox Grid.Row="5" x:Name="ZdjecieTextBox" Margin="5"/>
+            <Label Content="Lokalizacja dodania" Grid.Row="7" HorizontalAlignment="Left" Panel.ZIndex="100"/>
+            <TextBox x:Name="LokalizacjaTextBox" Background="Beige" Grid.Row="7" Width="250" Height="40" HorizontalAlignment="Right"/>
 
-        <TextBlock Grid.Row="6" Text="Cena:" Margin="5"/>
-        <TextBox Grid.Row="6" x:Name="CenaTextBox" Margin="5"/>
+            <Label Content="Lokalizacja zdjęcia" Grid.Row="8" HorizontalAlignment="Left" Panel.ZIndex="100"/>
+            <TextBox x:Name="imgSrc" Background="Beige" Grid.Row="8" Width="250" Height="40" HorizontalAlignment="Right"/>
 
-        <TextBlock Grid.Row="7" Text="Lokalizacja:" Margin="5"/>
-        <TextBox Grid.Row="7" x:Name="LokalizacjaTextBox" Margin="5"/>
+            <Button Background="DodgerBlue" Content="Dodaj samochód" Width="150" Height="38" Grid.Row="10" HorizontalAlignment="Left" Click="DodajSamochod_Click"/>
+            <Button Background="Purple" Content="Dodaj zdjęcie" Width="150" Height="38" Grid.Row="10" HorizontalAlignment="Right" Click="DodajZdjecie_Click"/>
 
-        <Button Grid.Row="8" Content="Dodaj" Click="DodajSamochod_Click" HorizontalAlignment="Center" Margin="5"/>
+        </Grid>
+        <Image x:Name="DisplayedImage" Width="300" Grid.Column="1"/>
     </Grid>
     </Window>
