@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Media.Imaging;
 using System.IO;
+using System.Windows.Input;
 
 namespace Car_Exchange.xaml
 {
@@ -62,6 +63,13 @@ namespace Car_Exchange.xaml
                 imgSrc.Text = destinationFilePath;
                 File.Copy(openFileDialog.FileName, destinationFilePath, true);
             }
+        }
+
+        private void Cofanie_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
     }
 }
