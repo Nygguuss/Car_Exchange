@@ -14,6 +14,7 @@ namespace Car_Exchange.xaml
     {
         public string destinationFilePath;
         public DateTime thisDay = DateTime.Today;
+        
 
         public DodawanieSamochodu()
         {
@@ -34,6 +35,10 @@ namespace Car_Exchange.xaml
                 string lokalizacjaS = LokalizacjaTextBox.Text;
                 DateTime dataDodaniaS = thisDay;
                 Cars.CarList.Add(new Model(Marka, modelS, rokProdukcji, kolorS, predkoscMax, cenaS, destinationFilePath, lokalizacjaS, dataDodaniaS));
+
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
             } catch (Exception ex)
             {
                 MessageBox.Show($"Błąd wprowadzania danych {ex}");
@@ -57,6 +62,7 @@ namespace Car_Exchange.xaml
                 DisplayedImage.Source = bitmap;
 
                 // Zapisz zdjęcie
+                //TODO: ustawić path w obrębie projektu a nie na sztywno!!!!
                 string destinationPath = "C:\\Users\\ADMIN\\source\\repos\\Car_Exchange\\src"; // Ustaw docelową ścieżkę
                 string fileName = Path.GetFileName(openFileDialog.FileName);
                 destinationFilePath = Path.Combine(destinationPath, fileName);
