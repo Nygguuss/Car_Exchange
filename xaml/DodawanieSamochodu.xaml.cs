@@ -34,7 +34,7 @@ namespace Car_Exchange.xaml
                 double cenaS = Convert.ToDouble(CenaTextBox.Text);
                 string lokalizacjaS = LokalizacjaTextBox.Text;
                 DateTime dataDodaniaS = thisDay;
-                Cars.CarList.Add(new Model(Marka, modelS, rokProdukcji, kolorS, predkoscMax, cenaS, destinationFilePath, lokalizacjaS, dataDodaniaS));
+                //Cars.CarList.Add(new Model(Marka, modelS, rokProdukcji, kolorS, predkoscMax, cenaS, destinationFilePath, lokalizacjaS, dataDodaniaS));
 
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();

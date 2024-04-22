@@ -22,9 +22,11 @@ namespace Car_Exchange
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = this;
+            //TODO: Dodaje auto po tym jak wejdzie się i wyjdzie, NAPRAWIĆ
+            Cars.DodajLosowySamochod();
+            DataContext = this; 
         }
-
+        
         private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Model wybranySamochod = (Model)samochodListbox.SelectedItem;
