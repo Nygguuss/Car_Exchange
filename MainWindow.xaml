@@ -26,7 +26,7 @@
 
         <ScrollViewer>
             <StackPanel>
-                <ListBox ItemsSource="{Binding CarList}" ItemContainerStyle="{StaticResource Style1}" AlternationCount="2" MouseDoubleClick="ListBox_MouseDoubleClick" x:Name="samochodListbox">
+                <ListBox ItemsSource="{Binding Source={x:Static local:Cars.CarList}, Mode=OneWay}" ItemContainerStyle="{StaticResource Style1}" AlternationCount="2" MouseDoubleClick="ListBox_MouseDoubleClick" x:Name="samochodListbox">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Border BorderBrush="Black" BorderThickness="1" Margin="5">

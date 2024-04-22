@@ -15,9 +15,6 @@ namespace Car_Exchange.xaml
         public string destinationFilePath;
         public DateTime thisDay = DateTime.Today;
 
-        //TODO: po modyfikacji i dodaniu klasy samochody sie nie ładują, NAPRAWIC
-        public ObservableCollection<Model> CarList { get; set; } = new ObservableCollection<Model>();
-
         public DodawanieSamochodu()
         {
             InitializeComponent();
