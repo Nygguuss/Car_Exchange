@@ -10,6 +10,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using Car_Exchange.xaml;
+using Car_Exchange.classes;
 
 namespace Car_Exchange
 {
@@ -23,16 +24,19 @@ namespace Car_Exchange
         public MainWindow()
         {
             InitializeComponent();
+            CarList = Cars.CarList;
             DataContext = this;
             InitializeCars();
+            
+
         }
 
         private void InitializeCars()
         {
-            CarList.Add(new Model("Opel", "Corsa", 2016, "Szary", 220, 85000, "src\\auto.png", "Warszawa", new DateTime(2022, 4, 12)));
-            CarList.Add(new Model("Dacia", "Sandero", 2012, "Niebieski", 220, 33000, "src\\auto2.png", "Kraków", new DateTime(2022, 4, 11)));
-            CarList.Add(new Model("Ford", "Mk3", 2017, "Czerwony", 280, 127000, "src\\auto3.png", "Gdańsk", new DateTime(2022, 4, 10)));
-            CarList.Add(new Model("Scania", "R730", 2015, "Brązowy", 180, 750000, "src\\auto4.png", "Poznań", new DateTime(2022, 4, 9)));
+            Cars.CarList.Add(new Model("Opel", "Corsa", 2016, "Szary", 220, 85000, "src\\auto.png", "Warszawa", new DateTime(2022, 4, 12)));
+            Cars.CarList.Add(new Model("Dacia", "Sandero", 2012, "Niebieski", 220, 33000, "src\\auto2.png", "Kraków", new DateTime(2022, 4, 11)));
+            Cars.CarList.Add(new Model("Ford", "Mk3", 2017, "Czerwony", 280, 127000, "src\\auto3.png", "Gdańsk", new DateTime(2022, 4, 10)));
+            Cars.CarList.Add(new Model("Scania", "R730", 2015, "Brązowy", 180, 750000, "src\\auto4.png", "Poznań", new DateTime(2022, 4, 9)));
         }
 
         private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)

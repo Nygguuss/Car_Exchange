@@ -5,6 +5,8 @@ using System.Windows;
 using System.Windows.Media.Imaging;
 using System.IO;
 using System.Windows.Input;
+using Car_Exchange.classes;
+using System.Diagnostics;
 
 namespace Car_Exchange.xaml
 {
@@ -12,7 +14,9 @@ namespace Car_Exchange.xaml
     {
         public string destinationFilePath;
         public DateTime thisDay = DateTime.Today;
-        public ObservableCollection<Model> CarList2 { get; set; } = new ObservableCollection<Model>();
+
+        //TODO: po modyfikacji i dodaniu klasy samochody sie nie ładują, NAPRAWIC
+        public ObservableCollection<Model> CarList { get; set; } = new ObservableCollection<Model>();
 
         public DodawanieSamochodu()
         {
@@ -32,11 +36,10 @@ namespace Car_Exchange.xaml
                 double cenaS = Convert.ToDouble(CenaTextBox.Text);
                 string lokalizacjaS = LokalizacjaTextBox.Text;
                 DateTime dataDodaniaS = thisDay;
-                CarList2.Add(new Model(Marka, modelS, rokProdukcji, kolorS, predkoscMax, cenaS, destinationFilePath, lokalizacjaS, dataDodaniaS));
-                MessageBox.Show(CarList2[0].Informacje());
+                Cars.CarList.Add(new Model(Marka, modelS, rokProdukcji, kolorS, predkoscMax, cenaS, destinationFilePath, lokalizacjaS, dataDodaniaS));
             } catch (Exception ex)
             {
-                MessageBox.Show("Wprowadź wszystkie dane");
+                MessageBox.Show($"Błąd wprowadzania danych {ex}");
             }
         }
 
