@@ -1,4 +1,4 @@
-﻿    <Window x:Class="Car_Exchange.xaml.DodawanieSamochodu"
+﻿<Window x:Class="Car_Exchange.xaml.DodawanieSamochodu"
             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -21,7 +21,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Label Content="Wprowadź dane Pojazdu" HorizontalAlignment="Center"/>
+        <Label Content="Podstawowe informacje" HorizontalAlignment="Center"/>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
@@ -35,7 +35,7 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
-            
+
             <Label Content="Marka pojazdu" Grid.Row="1" HorizontalAlignment="Left" Panel.ZIndex="100"/>
             <TextBox x:Name="MarkaTextBox" Background="Beige" Grid.Row="1" Width="250" Height="40" HorizontalAlignment="Right"/>
 
@@ -64,6 +64,94 @@
             <Button Background="Purple" Content="Dodaj zdjęcie" Width="150" Height="38" Grid.Row="10" HorizontalAlignment="Right" Click="DodajZdjecie_Click"/>
 
         </Grid>
-        <Image x:Name="DisplayedImage" Width="300" Grid.Column="1"/>
+
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <Label Content="Szczegółowe informacje pojazdu" FontSize="22" HorizontalAlignment="Center"/>
+                <Grid>
+                    <Grid.Resources>
+                        <Style TargetType="Label">
+                            <Setter Property="FontSize" Value="16"/>
+                        </Style>
+                    </Grid.Resources>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <!-- Labels for information -->
+                        <Label Content="VIN:"/>
+                        <Label Content="Przebieg:"/>
+                        <Label Content="Rodzaj silnika:"/>
+                        <Label Content="Wersja silnika:"/>
+                        <Label Content="Moc silnika:"/>
+                        <Label Content="Rodzaj skrzyni biegów:"/>
+                        <Label Content="Numer rejestracyjny:"/>
+                        <Label Content="Stan pojazdu:"/>
+                        <Label Content="Czy bezwypadkowy:"/>
+                        <Label Content="Rodzaj oferty:"/>
+                        <Label Content="Opis:"/>
+                        <Label Content="Numer sprzedającego:"/>
+                        <Label Content="Średnie spalanie:"/>
+                        <Label Content="Rodzaj emisji spalania:"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Background="LightGray">
+                        <StackPanel.Resources>
+                            <Style TargetType="TextBox">
+                                <Setter Property="FontSize" Value="16"/>
+                                <Setter Property="Margin" Value="3.5"/>
+                            </Style>
+                            <Style TargetType="ComboBox">
+                                <Setter Property="FontSize" Value="16"/>
+                                <Setter Property="Margin" Value="4"/>
+                            </Style>
+                        </StackPanel.Resources>
+                        <!-- druga kolumna dodawnia -->
+                        <TextBox x:Name="VINTextbox"/>
+                        <TextBox x:Name="PrzebiegTextbox"/>
+                        <!-- RodzajSilnika combobox tutaj -->
+                        <ComboBox x:Name="ComboBoxRodzajSilnika" ItemsSource="{Binding RodzajeSilnikow}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Label Content="{Binding}" Padding="0"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <ComboBox x:Name="ComboBoxWersjaSilnika" ItemsSource="{Binding WersjeSilnikow}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Label Content="{Binding}" Padding="0"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <TextBox x:Name="MocSilnikaTextBox"/>
+                        <TextBox x:Name="RodzajSkrzyniBiegowTextBox"/>
+                        <TextBox x:Name="NumerRejestracyjnyTextBox"/>
+                        <ComboBox x:Name="ComboBoxStanPojazdu" ItemsSource="{Binding StanyPojazdow}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Label Content="{Binding}" Padding="0"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <TextBox x:Name="CzyBezwypadkowyTextBox"/>
+                        <TextBox x:Name="RodzajOfertyTextBox"/>
+                        <TextBox x:Name="OpisTextBox"/>
+                        <TextBox x:Name="NumerSprzedajacegoTextBox"/>
+                        <TextBox x:Name="SrednieSpalanieTextBox"/>
+                        <ComboBox x:Name="ComboBoxEmisjaSpalania" ItemsSource="{Binding RodzajeEmisjiSpalania}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Label Content="{Binding}" Padding="0"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
+                </Grid>
+                <Label Content="Podgląd zdjęcia" FontSize="16" HorizontalAlignment="Center"/>
+                <Image  x:Name="DisplayedImage" Width="300"/>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
-    </Window>
+</Window>

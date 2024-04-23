@@ -23,7 +23,7 @@ namespace Car_Exchange
         {
             InitializeComponent();
             Cars.DodajLosowySamochod();
-            DataContext = this; 
+            DataContext = this;
         }
         
         private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)

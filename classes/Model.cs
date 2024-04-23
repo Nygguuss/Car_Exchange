@@ -14,7 +14,7 @@ namespace Car_Exchange
         Euro4,
         Euro5,
         Euro6
-    }
+    } 
 
     public enum StanPojazdu
     {
@@ -133,15 +133,15 @@ namespace Car_Exchange
                      string vin, int przebieg, RodzajSilnika rodzajSilnika, WersjaSilnika wersjaSilnika, int mocSilnika, string rodzajSkrzyniBiegow, string numerRejestracyjny, StanPojazdu stanPojazdu, bool czyBezwypadkowy, string rodzajOferty,
                      string opis, string numerSprzedajacego, double srednieSpalanie, EmisjaSpalania rodzajEmisjiSpalania)
         {
-            Marka = marka; //dodane
-            ModelSamochodu = modelS; //dodane
-            RokProdukcji = rokProdukcji; // dodane
+            Marka = marka;
+            ModelSamochodu = modelS;
+            RokProdukcji = rokProdukcji;
             Kolor = kolor;
             PredkoscMaksymalna = predkosc;
             Cena = c;
-            Zdjecie = sciezkaDoZdjecia; //dodane
-            Lokalizacja = lokalizacja; //dodane
-            DataDodania = dataDodania; //dodane
+            Zdjecie = sciezkaDoZdjecia;
+            Lokalizacja = lokalizacja;
+            DataDodania = dataDodania; 
             VIN = vin;
             Przebieg = przebieg;
             RodzajSilnika = rodzajSilnika;

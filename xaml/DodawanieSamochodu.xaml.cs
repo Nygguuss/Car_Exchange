@@ -14,7 +14,12 @@ namespace Car_Exchange.xaml
     {
         public string destinationFilePath;
         public DateTime thisDay = DateTime.Today;
-        
+        //kolekcje
+        public ObservableCollection<RodzajSilnika> RodzajeSilnikow { get; } = new ObservableCollection<RodzajSilnika>(Enum.GetValues(typeof(RodzajSilnika)).Cast<RodzajSilnika>());
+        public ObservableCollection<WersjaSilnika> WersjeSilnikow { get; } = new ObservableCollection<WersjaSilnika>(Enum.GetValues(typeof(WersjaSilnika)).Cast<WersjaSilnika>());
+        public ObservableCollection<EmisjaSpalania> RodzajeEmisjiSpalania { get; } = new ObservableCollection<EmisjaSpalania>(Enum.GetValues(typeof(EmisjaSpalania)).Cast<EmisjaSpalania>());
+        public ObservableCollection<StanPojazdu> StanyPojazdow { get; } = new ObservableCollection<StanPojazdu>(Enum.GetValues(typeof(StanPojazdu)).Cast<StanPojazdu>());
+
 
         public DodawanieSamochodu()
         {
@@ -26,6 +31,8 @@ namespace Car_Exchange.xaml
         {
             try
             {
+                //TODO: Dodawanie samochodu
+                /*
                 string Marka = MarkaTextBox.Text;
                 string modelS = ModelSamochoduTextBox.Text;
                 int rokProdukcji = Convert.ToInt32(RokProdukcjiTextBox.Text);
@@ -35,10 +42,7 @@ namespace Car_Exchange.xaml
                 string lokalizacjaS = LokalizacjaTextBox.Text;
                 DateTime dataDodaniaS = thisDay;
                 //Cars.CarList.Add(new Model(Marka, modelS, rokProdukcji, kolorS, predkoscMax, cenaS, destinationFilePath, lokalizacjaS, dataDodaniaS));
-
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-                this.Close();
+                */
             } catch (Exception ex)
             {
                 MessageBox.Show($"Błąd wprowadzania danych {ex}");
