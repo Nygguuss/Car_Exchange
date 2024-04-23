@@ -113,7 +113,7 @@ namespace Car_Exchange
                 NotifyPropertyChanged("ImageSource");
             }
         }
-
+        //TODO: wywala błąd kiedy próbuje się z dodanym samochodem wejść w detale, program wysypuje się tutaj i wskazuje że nie może znależć zdjecia
         public ImageSource ImageSource
         {
             get

@@ -31,18 +31,34 @@ namespace Car_Exchange.xaml
         {
             try
             {
-                //TODO: Dodawanie samochodu
-                /*
-                string Marka = MarkaTextBox.Text;
+                string marka = MarkaTextBox.Text;
                 string modelS = ModelSamochoduTextBox.Text;
                 int rokProdukcji = Convert.ToInt32(RokProdukcjiTextBox.Text);
-                string kolorS = KolorTextBox.Text;
-                double predkoscMax = Convert.ToDouble(PredkoscMaksymalnaTextBox.Text);
-                double cenaS = Convert.ToDouble(CenaTextBox.Text);
-                string lokalizacjaS = LokalizacjaTextBox.Text;
-                DateTime dataDodaniaS = thisDay;
-                //Cars.CarList.Add(new Model(Marka, modelS, rokProdukcji, kolorS, predkoscMax, cenaS, destinationFilePath, lokalizacjaS, dataDodaniaS));
-                */
+                string kolor = KolorTextBox.Text;
+                double predkosc = Convert.ToDouble(PredkoscMaksymalnaTextBox.Text);
+                double cena = Convert.ToDouble(CenaTextBox.Text);
+                string sciezkaDoZdjecia = imgSrc.Text;
+                string lokalizacja = LokalizacjaTextBox.Text;
+                DateTime dataDodania = DateTime.Today;
+                string vin = VINTextbox.Text;
+                int przebieg = Convert.ToInt32(PrzebiegTextbox.Text);
+                RodzajSilnika rodzajSilnika = (RodzajSilnika)ComboBoxRodzajSilnika.SelectedItem;
+                WersjaSilnika wersjaSilnika = (WersjaSilnika)ComboBoxWersjaSilnika.SelectedItem;
+                int mocSilnika = Convert.ToInt32(MocSilnikaTextBox.Text);
+                string rodzajSkrzyniBiegow = RodzajSkrzyniBiegowTextBox.Text;
+                string numerRejestracyjny = NumerRejestracyjnyTextBox.Text;
+                StanPojazdu stanPojazdu = (StanPojazdu)ComboBoxStanPojazdu.SelectedItem;
+                bool czyBezwypadkowy = Convert.ToBoolean(CzyBezwypadkowyTextBox.Text);
+                string rodzajOferty = RodzajOfertyTextBox.Text;
+                string opis = OpisTextBox.Text;
+                string numerSprzedajacego = NumerSprzedajacegoTextBox.Text;
+                double srednieSpalanie = Convert.ToDouble(SrednieSpalanieTextBox.Text);
+                EmisjaSpalania rodzajEmisjiSpalania = (EmisjaSpalania)ComboBoxEmisjaSpalania.SelectedItem;
+
+                Cars.CarList.Add(new Model(marka, modelS, rokProdukcji, kolor, predkosc, cena, sciezkaDoZdjecia, lokalizacja, dataDodania, vin, przebieg,
+                                       rodzajSilnika, wersjaSilnika, mocSilnika, rodzajSkrzyniBiegow, numerRejestracyjny, stanPojazdu, czyBezwypadkowy,
+                                       rodzajOferty, opis, numerSprzedajacego, srednieSpalanie, rodzajEmisjiSpalania));
+
             } catch (Exception ex)
             {
                 MessageBox.Show($"Błąd wprowadzania danych {ex}");
