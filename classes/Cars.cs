@@ -53,6 +53,7 @@ namespace Car_Exchange
                 );
 
                 Cars.CarList.Add(losowyModel);
+
             }
         }
     }
