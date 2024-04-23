@@ -33,7 +33,7 @@ namespace Car_Exchange
                     kolory[random.Next(kolory.Length)],
                     random.Next(180, 301), // Prędkość maksymalna losowana od 180 do 300 km/h
                     random.Next(30000, 300001), // Cena losowana od 30000 do 300000 PLN
-                    "src\\auto.png", // Tutaj możesz wprowadzić losową ścieżkę do zdjęcia
+                    "src\\auto2.png", // Tutaj możesz wprowadzić losową ścieżkę do zdjęcia
                     lokalizacje[random.Next(lokalizacje.Length)],
                     new DateTime(random.Next(2000, 2023), random.Next(1, 13), random.Next(1, 29)), // Losowa data dodania
                     $"VIN{random.Next(100000000, 1000000000)}", // Losowy numer VIN

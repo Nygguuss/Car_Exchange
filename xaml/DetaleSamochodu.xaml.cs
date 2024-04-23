@@ -28,7 +28,7 @@ namespace Car_Exchange.xaml
             DataContext = model;
         }
 
-        private void Cofanie_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();

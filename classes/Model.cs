@@ -133,15 +133,15 @@ namespace Car_Exchange
                      string vin, int przebieg, RodzajSilnika rodzajSilnika, WersjaSilnika wersjaSilnika, int mocSilnika, string rodzajSkrzyniBiegow, string numerRejestracyjny, StanPojazdu stanPojazdu, bool czyBezwypadkowy, string rodzajOferty,
                      string opis, string numerSprzedajacego, double srednieSpalanie, EmisjaSpalania rodzajEmisjiSpalania)
         {
-            Marka = marka;
-            ModelSamochodu = modelS;
-            RokProdukcji = rokProdukcji;
+            Marka = marka; //dodane
+            ModelSamochodu = modelS; //dodane
+            RokProdukcji = rokProdukcji; // dodane
             Kolor = kolor;
             PredkoscMaksymalna = predkosc;
             Cena = c;
-            Zdjecie = sciezkaDoZdjecia;
-            Lokalizacja = lokalizacja;
-            DataDodania = dataDodania;
+            Zdjecie = sciezkaDoZdjecia; //dodane
+            Lokalizacja = lokalizacja; //dodane
+            DataDodania = dataDodania; //dodane
             VIN = vin;
             Przebieg = przebieg;
             RodzajSilnika = rodzajSilnika;

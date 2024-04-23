@@ -5,58 +5,110 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Car_Exchange.xaml"
         mc:Ignorable="d"
-        
         Title="Program" Height="450" Width="800">
+
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.2*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <StackPanel Height="145" Grid.RowSpan="2" VerticalAlignment="Top">
-            <Image Source="pack://application:,,,/Car_Exchange;component/src/strzalka_prawo.png" RenderTransformOrigin="0.5,0.5" MouseDown="Cofanie_MouseDown">
-                <Image.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="180"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Image.RenderTransform>
-            </Image>
-        </StackPanel>
-        <StackPanel Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
-            <Label Content="{Binding Marka}" FontSize="25"/>
-            <Label Content="{Binding ModelSamochodu}" FontSize="25"/>
-        </StackPanel>
-        <Border BorderBrush="Black" BorderThickness="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Padding="5" Grid.Column="3" Margin="3">
-            <Image Source="{Binding ImageSource}"/>
-        </Border>
 
-        <Grid Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <StackPanel Grid.Row="1" Grid.Column="1" FlowDirection="RightToLeft">
-                <Label Content="{Binding Kolor}" FontSize="17"/>
-                <Label Content="{Binding RokProdukcji}" FontSize="17"/>
+        <StackPanel Grid.Column="0">
+            <!-- Left side content -->
+            <StackPanel>
+                <StackPanel>
+                    <Border BorderBrush="Black" BorderThickness="2" Padding="3" Margin="3">
+                        <Image Source="{Binding ImageSource}"/>
+                    </Border>
+                </StackPanel>
+                <StackPanel >
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Marka}" FontSize="20"/>
+                        <Label Content="{Binding ModelSamochodu}" FontSize="20"/>
+                        <Label Content="{Binding RokProdukcji}" FontSize="20"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Data dodania" FontSize="17"/>
+                        <Label Content="{Binding DataDodania}" FontSize="17"/>
+                        <Label Content="Lokalizacja" FontSize="17"/>
+                        <Label Content="{Binding Lokalizacja}" FontSize="17"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Cena" FontSize="16"/>
+                        <Label Content="{Binding Cena}" FontSize="16"/>
+                        <Label Content="PLN" FontSize="16"/>
+                    </StackPanel>
+                </StackPanel>
+                <Button Content="Cofnij do strony głównej" Click="Button_Click" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5"/>
             </StackPanel>
-            <StackPanel Grid.Column="1" FlowDirection="RightToLeft" Margin="5">
-                <Label Content="{Binding Lokalizacja}" FontSize="20"/>
-                <Label Content="{Binding DataDodania}" FontSize="14"/>
+        </StackPanel>
+
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <Label Content="Karta Informacyjna" FontSize="24" HorizontalAlignment="Center"/>
+                <Grid>
+                    <Grid.Resources>
+                        <Style TargetType="Label">
+                            <Setter Property="FontSize" Value="16"/>
+                        </Style>
+                    </Grid.Resources>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <!-- Labels for information -->
+                        <Label Content="Marka:" FontSize="16"/>
+                        <Label Content="Model:"/>
+                        <Label Content="Rok produkcji:"/>
+                        <Label Content="Kolor:"/>
+                        <Label Content="Prędkość maksymalna:"/>
+                        <Label Content="Cena:"/>
+                        <Label Content="Lokalizacja:"/>
+                        <Label Content="Data dodania:"/>
+                        <Label Content="VIN:"/>
+                        <Label Content="Przebieg:"/>
+                        <Label Content="Rodzaj silnika:"/>
+                        <Label Content="Wersja silnika:"/>
+                        <Label Content="Moc silnika:"/>
+                        <Label Content="Rodzaj skrzyni biegów:"/>
+                        <Label Content="Numer rejestracyjny:"/>
+                        <Label Content="Stan pojazdu:"/>
+                        <Label Content="Czy bezwypadkowy:"/>
+                        <Label Content="Rodzaj oferty:"/>
+                        <Label Content="Opis:"/>
+                        <Label Content="Numer sprzedającego:"/>
+                        <Label Content="Średnie spalanie:"/>
+                        <Label Content="Rodzaj emisji spalania:"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Background="LightGray">
+                        <!-- Data binding labels -->
+                        <Label Content="{Binding Marka}"/>
+                        <Label Content="{Binding ModelSamochodu}"/>
+                        <Label Content="{Binding RokProdukcji}"/>
+                        <Label Content="{Binding Kolor}"/>
+                        <Label Content="{Binding PredkoscMaksymalna}"/>
+                        <Label Content="{Binding Cena}"/>
+                        <Label Content="{Binding Lokalizacja}"/>
+                        <Label Content="{Binding DataDodania}"/>
+                        <Label Content="{Binding VIN}"/>
+                        <Label Content="{Binding Przebieg}"/>
+                        <Label Content="{Binding RodzajSilnika}"/>
+                        <Label Content="{Binding WersjaSilnika}"/>
+                        <Label Content="{Binding MocSilnika}"/>
+                        <Label Content="{Binding RodzajSkrzyniBiegow}"/>
+                        <Label Content="{Binding NumerRejestracyjny}"/>
+                        <Label Content="{Binding StanPojazdu}"/>
+                        <Label Content="{Binding CzyBezwypadkowy}"/>
+                        <Label Content="{Binding RodzajOferty}"/>
+                        <Label Content="{Binding Opis}"/>
+                        <Label Content="{Binding NumerSprzedajacego}"/>
+                        <Label Content="{Binding SrednieSpalanie}"/>
+                        <Label Content="{Binding RodzajEmisjiSpalania}"/>
+                    </StackPanel>
+                </Grid>
             </StackPanel>
-        </Grid>
+        </ScrollViewer>
     </Grid>
 </Window>

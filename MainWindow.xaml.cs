@@ -22,7 +22,6 @@ namespace Car_Exchange
         public MainWindow()
         {
             InitializeComponent();
-            //TODO: Dodaje auto po tym jak wejdzie się i wyjdzie, NAPRAWIĆ
             Cars.DodajLosowySamochod();
             DataContext = this; 
         }
