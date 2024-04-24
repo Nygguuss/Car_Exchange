@@ -34,5 +34,6 @@ namespace Car_Exchange.xaml
             mainWindow.Show();
             this.Close();
         }
+        //TODO: Lokalizacje zdjęć trzeba ustawiać na sztywno, naprawić to
     }
 }

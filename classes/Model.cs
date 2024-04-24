@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -97,10 +98,10 @@ namespace Car_Exchange
         public StanPojazdu StanPojazdu { get; set; }
         public bool CzyBezwypadkowy { get; set; }
         public string RodzajOferty { get; set; }
-        public string Opis { get; set; } // Opis samochodu
-        public string NumerSprzedajacego { get; set; } // Numer telefonu lub identyfikator sprzedającego
-        public double SrednieSpalanie { get; set; } // Średnie spalanie w litrach na 100 km
-        public EmisjaSpalania RodzajEmisjiSpalania { get; set; } // Rodzaj emisji spalania
+        public string Opis { get; set; }
+        public string NumerSprzedajacego { get; set; }
+        public double SrednieSpalanie { get; set; }
+        public EmisjaSpalania RodzajEmisjiSpalania { get; set; }
 
         public string _imagePath { get; set; }
 
@@ -111,17 +112,25 @@ namespace Car_Exchange
             {
                 _imagePath = value;
                 NotifyPropertyChanged("ImageSource");
+                NotifyPropertyChanged("ImagePath"); //dodano
             }
         }
-        //TODO: wywala błąd kiedy próbuje się z dodanym samochodem wejść w detale, program wysypuje się tutaj i wskazuje że nie może znależć zdjecia
+        //TODO: dodaj lokalizacje dynamiczną 
         public ImageSource ImageSource
         {
             get
             {
-                return new BitmapImage(new Uri($"pack://application:,,,/Car_Exchange;component/{ImagePath}", UriKind.Absolute));
+                if (!string.IsNullOrEmpty(ImagePath) && File.Exists(ImagePath)) 
+                {
+                    return new BitmapImage(new Uri(ImagePath)); 
+                }
+                else
+                {
+                    //TODO : Dodaj domyślne zdjęcie kiedy dodane się nie załaduje
+                    return null;
+                }
             }
         }
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void NotifyPropertyChanged([CallerMemberName] string propertyName = null)

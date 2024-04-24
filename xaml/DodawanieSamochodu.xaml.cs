@@ -83,7 +83,7 @@ namespace Car_Exchange.xaml
 
                 // Zapisz zdjęcie
                 //TODO: ustawić path w obrębie projektu a nie na sztywno!!!!
-                string destinationPath = "C:\\Users\\ADMIN\\source\\repos\\Car_Exchange\\src"; // Ustaw docelową ścieżkę
+                string destinationPath = "C:\\Users\\Wuaje23\\source\\repos\\Nygguuss\\Car_Exchange\\src";
                 string fileName = Path.GetFileName(openFileDialog.FileName);
                 destinationFilePath = Path.Combine(destinationPath, fileName);
                 imgSrc.Text = destinationFilePath;
