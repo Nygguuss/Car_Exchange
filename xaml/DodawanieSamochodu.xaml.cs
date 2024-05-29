@@ -55,9 +55,18 @@ namespace Car_Exchange.xaml
                 double srednieSpalanie = Convert.ToDouble(SrednieSpalanieTextBox.Text);
                 EmisjaSpalania rodzajEmisjiSpalania = (EmisjaSpalania)ComboBoxEmisjaSpalania.SelectedItem;
 
-                Cars.CarList.Add(new Model(marka, modelS, rokProdukcji, kolor, predkosc, cena, sciezkaDoZdjecia, lokalizacja, dataDodania, vin, przebieg,
+                // Tworzymy nowy obiekt samochodu
+                Model newCar = new Model(marka, modelS, rokProdukcji, kolor, predkosc, cena, sciezkaDoZdjecia, lokalizacja, dataDodania, vin, przebieg,
                                        rodzajSilnika, wersjaSilnika, mocSilnika, rodzajSkrzyniBiegow, numerRejestracyjny, stanPojazdu, czyBezwypadkowy,
-                                       rodzajOferty, opis, numerSprzedajacego, srednieSpalanie, rodzajEmisjiSpalania));
+                                       rodzajOferty, opis, numerSprzedajacego, srednieSpalanie, rodzajEmisjiSpalania);
+
+                // Dodajemy samochód do listy
+                Cars.CarList.Add(newCar);
+
+                // Zapisujemy informacje o samochodzie do pliku JSON
+                conversionJSONData.SaveCarToFile(newCar);
+
+                MessageBox.Show("Samochód został pomyślnie dodany i zapisany.");
 
             } catch (Exception ex)
             {
