@@ -62,15 +62,11 @@ namespace Car_Exchange.xaml
 
                 // Dodajemy samochód do listy
                 Cars.CarList.Add(newCar);
-
-                // Zapisujemy informacje o samochodzie do pliku JSON
-                conversionJSONData.SaveCarToFile(newCar);
-
                 MessageBox.Show("Samochód został pomyślnie dodany i zapisany.");
 
             } catch (Exception ex)
             {
-                MessageBox.Show($"Błąd wprowadzania danych {ex}");
+                MessageBox.Show($"Błąd wprowadzania danych. Sprawdź poprawność danych");
             }
         }
 
